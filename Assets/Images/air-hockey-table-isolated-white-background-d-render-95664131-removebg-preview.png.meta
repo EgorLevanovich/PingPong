@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      air-hockey-table-isolated-white-background-d-render-95664131-removebg-preview_0: 7525721734389300409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      air-hockey-game-clipart-md_0: -5742119457202995482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      12-127038_play-icon-button_0: 6056512161486167448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -158,7 +158,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      music-icon-internet-button-on-white-background-FPC00P-removebg-preview (1)_0: 485980457839773633
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

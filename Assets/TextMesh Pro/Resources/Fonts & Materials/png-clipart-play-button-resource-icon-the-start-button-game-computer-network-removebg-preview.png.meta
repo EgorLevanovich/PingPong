@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-clipart-play-button-resource-icon-the-start-button-game-computer-network-removebg-preview_0: 4226987363664949122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

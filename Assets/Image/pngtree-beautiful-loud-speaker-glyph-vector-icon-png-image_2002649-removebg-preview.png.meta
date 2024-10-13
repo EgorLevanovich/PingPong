@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-beautiful-loud-speaker-glyph-vector-icon-png-image_2002649-removebg-preview_0: -992471793161564945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

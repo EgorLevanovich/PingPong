@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      free-play-button-icon-4210-thumb_0: -4814568090831840982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

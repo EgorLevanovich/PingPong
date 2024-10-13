@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-transparent-motorcycle-accessories-victory-motorcycles-motorcycle-lift-quadracycle-victory-angle-text-logo-removebg-preview_0: -4189896627478009952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

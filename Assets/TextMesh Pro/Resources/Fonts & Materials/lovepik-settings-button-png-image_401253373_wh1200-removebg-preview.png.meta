@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lovepik-settings-button-png-image_401253373_wh1200-removebg-preview_0: 7084561221982911402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

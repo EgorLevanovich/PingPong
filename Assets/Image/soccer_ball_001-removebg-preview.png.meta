@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soccer_ball_001-removebg-preview_0: 1106877261360780969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

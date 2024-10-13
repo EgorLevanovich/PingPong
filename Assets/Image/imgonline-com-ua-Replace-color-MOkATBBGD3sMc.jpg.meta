@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      imgonline-com-ua-Replace-color-MOkATBBGD3sMc_0: 8645257781818087625
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

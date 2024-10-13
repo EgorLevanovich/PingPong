@@ -1,79 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-
-    bool wasJustClicked = true;
-    bool canMove;
-    Vector2 playerSize;
-    private Rigidbody2D _rb;
-    public static Vector2 SpawnPointPosition = new Vector2(-2, 332);
     [SerializeField] private Rigidbody2D[] _players;
+    [SerializeField] private Transform _movementArea;
+    [SerializeField] private Color _gizmosColor;
     
+    private bool _isDragging;
+    private Vector2 _playerSize;
+    private Rigidbody2D _player;
+    
+    private Camera _camera;
 
-
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
         int index = PlayerPrefs.GetInt(PlayerSelect.SkinKey);
         for (int i = 0; i < _players.Length; i++)
         {
             if (i == index)
             {
-                _rb = _players[i];
-                _rb.gameObject.SetActive(true);
-
+                _player = _players[i];
+                _player.gameObject.SetActive(true);
             }
             else
             {
                 _players[i].gameObject.SetActive(false);
             }
         }
-            
-       
-        playerSize = Vector2.one;
+
+        _playerSize = _player.GetComponent<SpriteRenderer>().bounds.size;
+        _camera = Camera.main;
     }
 
-   
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (wasJustClicked )
-            {
-                wasJustClicked = false;
-
-
-                if ((mousePos.x >= _rb.position.x && mousePos.x < _rb.position.x + playerSize.x ||
-                mousePos.x <= _rb.position.x && mousePos.x > _rb.position.x - playerSize.x) &&
-                (mousePos.y >= _rb.position.y && mousePos.y < _rb.position.y + playerSize.y ||
-                mousePos.y <= _rb.position.y && mousePos.y > _rb.position.y - playerSize.y))
-                {
-                    canMove = true;
-                }
-                else
-                {
-                    canMove = false;
-                }
-            }
-
-           
-
-            if (canMove)
-            {
-                
-                _rb.MovePosition(mousePos);
-            }
+            _isDragging = true;
         }
-        else
+        else if(Input.GetMouseButtonUp(0))
         {
-            wasJustClicked = true;
+            _isDragging = false;
+        }
+
+        if (_isDragging)
+        {
+            Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 clampedPosition = GetClampedPosition(mousePos);
+            _player.MovePosition(clampedPosition);
+        }
+    }
+
+    private Vector2 GetClampedPosition(Vector2 targetPosition)
+    {
+        Vector2 areaMin = _movementArea.position - _movementArea.localScale / 2;
+        Vector2 areaMax = _movementArea.position + _movementArea.localScale / 2;
+        
+        float clampedX = Mathf.Clamp(targetPosition.x, areaMin.x + _playerSize.x / 2, areaMax.x - _playerSize.x / 2);
+        float clampedY = Mathf.Clamp(targetPosition.y, areaMin.y + _playerSize.y / 2, areaMax.y - _playerSize.y / 2);
+
+        return new Vector2(clampedX, clampedY);
+    }
+    
+    private void OnDrawGizmos()
+    {
+        if (_movementArea != null)
+        {
+            Gizmos.color = _gizmosColor;
+            
+            Vector2 areaCenter = _movementArea.position;
+            Vector2 areaSize = _movementArea.localScale;
+            
+            Gizmos.DrawCube(areaCenter, areaSize);
+            Gizmos.DrawWireCube(areaCenter, areaSize);
         }
     }
 }

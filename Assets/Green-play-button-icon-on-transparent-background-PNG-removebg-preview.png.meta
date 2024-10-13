@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Green-play-button-icon-on-transparent-background-PNG-removebg-preview_0: -7678172575396721042
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

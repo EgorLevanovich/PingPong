@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      air-hockey-game-clipart-xl-removebg-preview_0: 9104939091694261239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

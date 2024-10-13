@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-transparent-graphy-shopping-cart-computer-icons-web-button-removebg-preview_0: 3661225003021848851
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

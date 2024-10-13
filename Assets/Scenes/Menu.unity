@@ -996,7 +996,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skins
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1541393428042863811, guid: 6af789a8bb032a147bfc451e93933f61, type: 3}
+    - {fileID: 2217250593765611963, guid: 6af789a8bb032a147bfc451e93933f61, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1376,6 +1378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balls
       objectReference: {fileID: 0}
+    - target: {fileID: 1505402681882051459, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3652510043548432814, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1476,16 +1482,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6714523201156258394, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1705318190}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1505402681882051459, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 961003079}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
---- !u!1 &678372299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1505402681882051459, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
-  m_PrefabInstance: {fileID: 678372298}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &791026509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,18 +2048,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6714523201156258394, guid: 221ab683677e6774591ce099cf910d4e, type: 3}
   m_PrefabInstance: {fileID: 678372298}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &961003079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678372299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26efaac1a120ce44eace354185983b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1096759742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2130,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 961003079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BallSelected, Assembly-CSharp
         m_MethodName: SelectLeft
         m_Mode: 1
@@ -3505,7 +3491,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 961003079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BallSelected, Assembly-CSharp
         m_MethodName: SelectRight
         m_Mode: 1
@@ -4123,6 +4109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2711e944150b9de48a55dc16d0934006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameplayScene: {fileID: 102900000, guid: 2ff3a28480d714f42b3bcfc5fd744d8c, type: 3}
 --- !u!1 &2076725235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4408,7 +4395,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 961003079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BallSelected, Assembly-CSharp
         m_MethodName: StartScene
         m_Mode: 1

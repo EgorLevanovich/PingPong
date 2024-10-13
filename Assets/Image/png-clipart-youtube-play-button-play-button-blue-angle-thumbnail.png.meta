@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-clipart-youtube-play-button-play-button-blue-angle-thumbnail_0: -886018094267592070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

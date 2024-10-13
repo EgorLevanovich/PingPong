@@ -1,63 +1,62 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerSelect : MonoBehaviour
 {
-    private GameObject[] characters;
-    private int index;
-    public static readonly string SkinKey = "CharacterSelected";
+    private GameObject[] _characters;
+    private int _index;
+
+    public const string SkinKey = "CharacterSelected";
+
     private void Start()
     {
-        index = PlayerPrefs.GetInt(SkinKey);
+        _index = PlayerPrefs.GetInt(SkinKey);
        
-        characters = new GameObject[transform.childCount];
+        _characters = new GameObject[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            characters[i] = transform.GetChild(i).gameObject;
+            _characters[i] = transform.GetChild(i).gameObject;
         }
-        foreach (GameObject go in characters)
+        foreach (GameObject go in _characters)
         {
             go.SetActive(false);
         }
-
-        Debug.Log($"{index} {characters.Length}");
-        if (characters[index])
+        
+        if (_characters[_index])
         {
-            characters[index].SetActive(true);
+            _characters[_index].SetActive(true);
         }
     }
 
     public void SelectLeft()
     {
-        characters[index].SetActive(false);
-        index--;
-        if (index < 0)
+        _characters[_index].SetActive(false);
+        _index--;
+        if (_index < 0)
         {
-            index = characters.Length - 1;
+            _index = _characters.Length - 1;
         }
-        characters[index].SetActive(true);
+        _characters[_index].SetActive(true);
+        
+        Save();
     }
 
     public void SelectRight()
     {
-        characters[index].SetActive(false);
-        index++;
-        if (index == characters.Length)
+        _characters[_index].SetActive(false);
+        _index++;
+        if (_index == _characters.Length)
         {
-            index = 0;
+            _index = 0;
         }
-        characters[index].SetActive(true);
+        _characters[_index].SetActive(true);
+        
+        Save();
     }
 
-    public void StartScene()
+    private void Save()
     {
-        PlayerPrefs.SetInt(SkinKey, index);
-       
-        SceneManager.LoadScene("Game");
+        Debug.Log($"{_index} {_characters.Length}");
+        PlayerPrefs.SetInt(SkinKey, _index);
     }
-
 }

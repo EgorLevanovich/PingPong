@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      music-icon-internet-button-on-white-background-FPC00P_0: 1177019648577706871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
