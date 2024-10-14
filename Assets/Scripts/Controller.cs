@@ -5,11 +5,11 @@ public class Controller : MonoBehaviour
     [SerializeField] private Rigidbody2D[] _players;
     [SerializeField] private Transform _movementArea;
     [SerializeField] private Color _gizmosColor;
-    
+
     private bool _isDragging;
     private Vector2 _playerSize;
     private Rigidbody2D _player;
-    
+
     private Camera _camera;
 
     private void Start()
@@ -36,9 +36,14 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _isDragging = true;
+            Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+            if (IsMouseOverPlayer(mousePos))
+            {
+                _isDragging = true;
+            }
         }
-        else if(Input.GetMouseButtonUp(0))
+
+        if (Input.GetMouseButtonUp(0))
         {
             _isDragging = false;
         }
@@ -51,26 +56,39 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private bool IsMouseOverPlayer(Vector2 mousePos)
+    {
+        float halfWidth = _playerSize.x / 2;
+        float halfHeight = _playerSize.y / 2;
+        
+        if (mousePos.x >= _player.position.x - halfWidth && mousePos.x <= _player.position.x + halfWidth &&
+            mousePos.y >= _player.position.y - halfHeight && mousePos.y <= _player.position.y + halfHeight)
+        {
+            return true;
+        }
+        return false;
+    }
+
     private Vector2 GetClampedPosition(Vector2 targetPosition)
     {
         Vector2 areaMin = _movementArea.position - _movementArea.localScale / 2;
         Vector2 areaMax = _movementArea.position + _movementArea.localScale / 2;
-        
+
         float clampedX = Mathf.Clamp(targetPosition.x, areaMin.x + _playerSize.x / 2, areaMax.x - _playerSize.x / 2);
         float clampedY = Mathf.Clamp(targetPosition.y, areaMin.y + _playerSize.y / 2, areaMax.y - _playerSize.y / 2);
 
         return new Vector2(clampedX, clampedY);
     }
-    
+
     private void OnDrawGizmos()
     {
         if (_movementArea != null)
         {
             Gizmos.color = _gizmosColor;
-            
+
             Vector2 areaCenter = _movementArea.position;
             Vector2 areaSize = _movementArea.localScale;
-            
+
             Gizmos.DrawCube(areaCenter, areaSize);
             Gizmos.DrawWireCube(areaCenter, areaSize);
         }
