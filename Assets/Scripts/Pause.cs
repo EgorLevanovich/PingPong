@@ -1,40 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class Pause : MonoBehaviour
+public class SettingsService : MonoBehaviour
 {
-    public GameObject _menuOpen;
-    public GameObject _Player;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _settingsWindow;
+    
+    [SerializeField] private Button _openButton;
+    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button _exitButton;
+
+    private const string MenuSceneName = "Menu";
+
+    private void Start()
     {
-        
+        _openButton.onClick.AddListener(OpenSettings);
+        _closeButton.onClick.AddListener(CloseSettings);
+        _exitButton.onClick.AddListener(ExitToMenu);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OpenSettings()
     {
-        
-    }
-
-   public void PauseButton()
-    {
-        
         Time.timeScale = 0f;
-        _menuOpen.SetActive(true);
-
+        _settingsWindow.SetActive(true);
     }
 
-    public void ResumeGame()
+    private void CloseSettings()
     {
-        _menuOpen.SetActive(false);
         Time.timeScale = 1f;
+        _settingsWindow.SetActive(false);
     }
 
-    public void QuitTheGame()
+    private void ExitToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        CloseSettings();
+        SceneManager.LoadScene(MenuSceneName);
     }
 }
